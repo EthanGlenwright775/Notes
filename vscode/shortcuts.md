@@ -3,11 +3,21 @@
 ## Reference
 * For an official reference sheet, look [here](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
+## Favorites
+* `Ctrl + Shift + P` - open command palette
+* `Ctrl + P` - open file
+* `Ctrl + P` - quick open file
+* `Ctrl + B` - toggle sidebar
+* `Ctrl + L` - select line
+* `Ctrl + Tab` - switch between open files
+* `Ctrl + G` - go to line
+* `Ctrl + K Z` - zen mode
+* ``Ctrl + ` `` - toggle terminal
+
 ## Markdown
 * `Ctrl + Shift + V` - render markdown
 
 ## General
-
 * `Ctrl + Shift + P` - open command palette
 * `Ctrl + P` - quick open files
 * `Ctrl + ,` - open settings
