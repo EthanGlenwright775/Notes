@@ -172,3 +172,81 @@
 * `info <command>` - another avenue for documentation
 
 ## 2.14 - Shell Input and Output
+* Redirection - 
+    * `command > file` - shell overwrites file with output from command
+    * `command >> file` - shell appends output of command to end fo file
+    * pipe - `|` send command output to input of another command
+    * `command < file` - channel file into program input
+* Standard error - additional output stream for diagnostics and debugging
+    * Redirect - `ls /fffffffff > f 2> e` sends stdin to file f and stderr to file e
+* Stream ID -
+    * stdout - 1
+    * stderr - 2 `2>&1` redirects stderr to stdout
+
+## 2.15 Understanding Error Messages
+* Anatomy of a UNIX error message
+    *  `ls: cannot access /blahblah: No such file or directory`
+        * program_name: file: error
+* Common errors:
+    * `No such file or directory`
+        * known as ENONET or "Error NO ENTity"
+    * `File exists`
+    * `Not a directory` - treating a file as a directory
+    * `No space left on device` - out of disk space
+    * `Permission denied`
+    * `Operation not permitted` - usually happens when trying to kill a process that you do not own
+    * `Segmentation fault, Bus error` - program tried to access a part of memory that it was not allowed to touch and the operating system killed it
+
+## 2.16 - Listing and Manipulating Hardware
+* PID - each process has a numeric process ID
+* `ps` - quick listing of running processes
+    * PID
+    * TTY - terminal device where process is running
+    * STAT - process status, what the process is doing and where the memory resides. S means sleeping, R means running
+    * TIME - amount of CPU time in minutes and seconds that the process has used so far
+    * COMMAND - command used to run the program
+* `ps` options
+    * `ps x` - show all your running processes
+    * `ps ax` - show all processes on the system
+    *  `ps u` - include more detailed information
+    * `ps w` - show full command names
+* Process Termination
+    * signal - message to a process from kernel
+    * `kill pid` - sends `TERM` (terminate) signal
+    * `kill -STOP pid` - sends `STOP` signal
+    * `kill -CONT pid` - sends `CONT` signal to continue process
+    * `CTRL-C` - `INT` (interrupt) signal
+    * `kill -KILL pid` - cannot be ignored
+    * `kill -l` - map signal numbers to names
+* Job control
+    * allows you to suspend and switch between programs
+    * send `TSTP` signal with `CTRL-Z` and resume with `fg` (bring to foreground) or `bg` (bring to background)
+    * `jobs` - see if you have accidentally suspended a process
+* Background Processes
+    * `&` - detach process from shell and put it in the background
+        * `gunzip file.gz &`
+        * shell responds by printing the PID and returning the prompt
+
+## 2.17 File Modes and Permissions
+* `ls -l` - `drwxr-xr-x 4 ethan ethan 4096 Feb 13 23:02 projects`
+    * Type - `d`, `d` means directory, `-` means regular text or binary file, `l` means symbolic link
+    * User - `rwx`
+    * Group - `r-x`
+    * Other - `r-x`
+* Permissions -
+    * `r` means file is readable
+    * `w` means file is writable
+    * `x` means file is executable
+    * `-` permission not granted
+    * `s` - indicates the executable is setuid, meaning that when the program is executed it runs as though the file owner is the user instead of you
+* Modifying Permissions
+    * `chmod g+r file` - add read to group
+    * `chmod go-rwx file` - remove all permissions from group and others
+    * `chmod 644 file` - represents permission bits in octal form
+* `umask 077` - set default permissions of files that you create, in this case hide everything from everybody but you
+    * put in `.bashrc` file
+* Symbolic Links - file that points to another file or directory, alias
+    * `l` is the file type
+    * create - `ln -s target linkname`
+
+## 2.18 - Archiving and Compressing Files
