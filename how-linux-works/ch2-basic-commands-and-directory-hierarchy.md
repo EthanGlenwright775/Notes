@@ -250,3 +250,48 @@
     * create - `ln -s target linkname`
 
 ## 2.18 - Archiving and Compressing Files
+* `gzip` - GNU zip
+    * `gunzip file.gz` - uncompress
+    * `gzip file` - compress
+* `tar` - multiple files
+    * `tar cvpf archive.tar file1 file2` - archive file1 and file2 inside archive.tar
+        * c - create mode
+        * v - verbose diagnostic output
+        * p - use permissions already specified
+        * f - target filename
+    * `tar xvf archive.tar` - unpack archive.tar
+        * x - extract mode
+    * `tar t archive.tar` - peek inside archive.tar
+* `tar ztvf file.tar.gz`
+    * z - use `zcat` to fully unpack .tar.gz
+
+## 2.19 - Linux Directory Hierarchy Essentials
+* Subdirectories in root `/` -
+    * `/bin` - executables for most of the basic unix commands
+    * `/dev` - device files
+    * `/etc` - contains user password, boot, device, networking, and other setup files
+    * `/home` - holds home directories for regular users
+    * `/lib` - shared library files containing code that executables can use
+    * `/proc` - provides system statistics through browsable directory and file interface
+    * `/run` - runtime data specific to the system including process IDs, socket files, status records, and system logging
+    * `/sys` - device and system interface
+    * `/sbin` - system executables
+    * `/tmp` - storage area for small, temporary files, wiped on boot
+    * `usr` - contains large directory hierarchy including bulk of linux system.
+    * `boot` - contains kernel boot loader files
+    * `media` - base attachment point for removable media such as flash drives
+    * `opt` - may contain optional third party software
+* Subdirectories in `/usr` -
+    * `/include` - holds header files used by C compiler
+    * `/local` - where admins can install their own software
+    * `/man` - contains manual pages
+    * `/share` - contains files that should work on other kinds of unix machines
+
+## 2.20 - Running Commands as the Superuser
+* Disadvantages of starting a root shell -
+    * no record of system altering commands
+    * no record of the users who performed system altering commands
+    * no access to your normal shell environment
+    * have to enter root password
+* `sudo`
+    * package that allows admins to run commands as root when logged in as themselves
