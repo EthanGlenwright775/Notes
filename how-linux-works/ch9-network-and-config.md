@@ -100,3 +100,17 @@
     2. Perform additional pysical layer setup such as choosing a network name and password
     3. Assign IP addresses and subnets to the kernel network interface
     4. Add any additional routes, including the default gateway.
+
+### 9.11.1 - Manually Configuring Interfaces
+* `ip address add address/subnet dev interface` - bind an interface to the internet layer
+    * interface - name of the interface such as `eth0`, `eth0` meaning the default name for the first ethernet network interface on the system
+    * `ls /sys/class/net` - list all network interfaces
+        * `eth0`
+        * `lo` - loopback interface `127.0.0.1`
+        * `wlan0` - wifi adapter
+    * device starts accepting packets destined for the new address, a service (like a web server) could listen and respond
+
+### 9.11.2 - Manually Adding and Deleting Routes
+* `ip route add default via gw-address dev interface` - defines path for outbound traffic, in this case setting up the default gateway
+    * `gw-adress` - must be address in locally connected subnet
+    

@@ -1,7 +1,7 @@
 # Table of contents
 
 ## How Linux Works
-* Notes based upon ['How Linux Works' by Brian Ward](https://www.amazon.com/How-Linux-Works-Brian-Ward/dp/1718500408)
+* Notes based upon the book ['How Linux Works' by Brian Ward](https://www.amazon.com/How-Linux-Works-Brian-Ward/dp/1718500408)
 ### Contents
 1. [The Big Picture](how-linux-works/ch1-the-big-picture.md)
 2. [Basic Commands and the Directory Hierarchy](how-linux-works/ch2-basic-commands-and-directory-hierarchy.md)
